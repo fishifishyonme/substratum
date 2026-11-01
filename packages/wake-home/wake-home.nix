@@ -17,12 +17,12 @@ pkgs.writeShellApplication {
     # --- CONFIG ---
     VPN_NAME="wg0"                  # Name of your VPN in NetworkManager
     TARGET_MAC="60:45:CB:71:43:33"  # Home PC MAC address
-    TARGET_IP="192.168.70.3"        # Home PC IP
+    TARGET_IP="192.168.0.21"        # Home PC IP
 
     MIKROTIK_IP="10.200.200.2"
 
     IS_TAILSCALE=0
-    VPN_COMMAND="ssh mikrotik '/tool wol interface=BR-OUT mac=$TARGET_MAC'"
+    VPN_COMMAND="ssh mikrotik '/tool wol interface=ether5 mac=$TARGET_MAC'"
 
     # --- FUNCTIONS ---
 
