@@ -26,6 +26,34 @@
 
     keymaps = [
       {
+        key = "af";
+        mode = [
+          "x"
+          "o"
+        ];
+        action = ''
+          function()
+            require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
+          end
+        '';
+        lua = true;
+        desc = "Select outer function";
+      }
+      {
+        key = "if";
+        mode = [
+          "x"
+          "o"
+        ];
+        action = ''
+          function()
+            require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
+          end
+        '';
+        lua = true;
+        desc = "Select inner function";
+      }
+      {
         key = "<leader>e";
         mode = "n";
         silent = true;
@@ -81,6 +109,7 @@
       };
     };
     treesitter.enable = true;
+    treesitter.textobjects.enable = true;
     visuals.fidget-nvim.enable = true;
     binds.whichKey.enable = true;
     filetree.neo-tree = {
